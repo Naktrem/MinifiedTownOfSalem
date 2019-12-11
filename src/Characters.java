@@ -5,13 +5,6 @@ public abstract class Characters {
     private static boolean isAlive;
     private static boolean isProtected;
 
-    public static boolean isBusy() {
-        return isBusy;
-    }
-
-    public static void setBusy(boolean isBusy) {
-        Characters.isBusy = isBusy;
-    }
 
     private static boolean isBusy;
 
@@ -34,13 +27,18 @@ public abstract class Characters {
         Characters.isAlive = isAlive;
     }
 
-    public boolean isProtected() {
+    public static boolean isProtected() {
         return isProtected;
     }
 
-    public void setProtected(boolean isProtected) {
+    public static void setProtected(boolean isProtected) {
         Characters.isProtected = isProtected;
     }
+
+    public static boolean isBusy() { return isBusy; }
+
+    public static void setBusy(boolean isBusy) { Characters.isBusy = isBusy; }
+
 
     public int getPlayerNumber() {
         return playerNumber;
