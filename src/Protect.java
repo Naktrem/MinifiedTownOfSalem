@@ -1,14 +1,15 @@
 import java.util.Scanner;
 
-class Protect extends Characters implements SpecialPower {
+class Protect implements SpecialPower {
     private int playernumber;
     public Protect() {
-        Scanner scanner = new Scanner(System.in);
-        playernumber = scanner.nextInt();
+
     }
 
     @Override
-    public void specialPower() {
+    public void use() {
+        Scanner scanner = new Scanner(System.in);
+        playernumber = scanner.nextInt();
         if (playernumber == 1 && Bodyguard.isAlive() && !Bodyguard.isBusy()) {
             Jester.setProtected(true);
         }
@@ -26,10 +27,9 @@ class Protect extends Characters implements SpecialPower {
         }
 
     }
-
     @Override
-    public void display() {
-        // TODO Auto-generated method stub
+    public void printSpecialPowerStatus() {
 
     }
+
 }

@@ -12,4 +12,10 @@ public class Jester extends Characters{
         // TODO Auto-generated method stub
 
     }
+
+    @Override
+    public void useSpecialPower() {
+        setSpecialPower(new Heal());
+        notifyObservers();
+    }
 }

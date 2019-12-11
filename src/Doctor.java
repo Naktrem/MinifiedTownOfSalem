@@ -8,7 +8,7 @@ public class Doctor extends Characters{
 
     @Override
     public void display() {
-        // TODO Auto-generated method stub
-
+        System.out.println("jahd");
     }
+
 }

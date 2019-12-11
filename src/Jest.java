@@ -1,15 +1,16 @@
 import java.util.Scanner;
 
-class Jest extends Characters implements SpecialPower {
+class Jest implements SpecialPower {
     private int playernumber;
 
     public Jest() {
-        Scanner scanner = new Scanner(System.in);
-        playernumber = scanner.nextInt();
+
     }
 
     @Override
-    public void specialPower() {
+    public void use() {
+        Scanner scanner = new Scanner(System.in);
+        playernumber = scanner.nextInt();
         if (playernumber == 2 && Jester.isAlive()) {
             Investigator.setAlive(false);
         }
@@ -29,8 +30,7 @@ class Jest extends Characters implements SpecialPower {
     }
 
     @Override
-    public void display() {
-        // TODO Auto-generated method stub
+    public void printSpecialPowerStatus() {
 
     }
 }

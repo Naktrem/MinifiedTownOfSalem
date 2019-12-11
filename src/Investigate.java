@@ -1,15 +1,16 @@
 import java.util.Scanner;
 
-class Investigate extends Characters implements SpecialPower {
+class Investigate implements SpecialPower {
     private int playernumber;
     private String output;
     public Investigate() {
-        Scanner scanner = new Scanner(System.in);
-        playernumber = scanner.nextInt();
+
     }
 
     @Override
-    public void specialPower() {
+    public void use() {
+        Scanner scanner = new Scanner(System.in);
+        playernumber = scanner.nextInt();
         if (playernumber == 1 && Investigator.isAlive() && !Investigator.isBusy()) {
             output = "Investigator invest Jester";
         }
@@ -27,10 +28,9 @@ class Investigate extends Characters implements SpecialPower {
         }
 
     }
-
     @Override
-    public void display() {
-        // TODO Auto-generated method stub
+    public void printSpecialPowerStatus() {
 
     }
+
 }

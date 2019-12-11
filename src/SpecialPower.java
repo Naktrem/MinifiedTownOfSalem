@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
 public interface SpecialPower {
-    public void specialPower();
+    public void use();
+    public void printSpecialPowerStatus();
 }

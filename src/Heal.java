@@ -1,15 +1,16 @@
 import java.util.Scanner;
 
-class Heal extends Characters implements SpecialPower {
+class Heal implements SpecialPower {
     private int playernumber;
 
     public Heal() {
-        Scanner scanner = new Scanner(System.in);
-        playernumber = scanner.nextInt();
+
     }
 
     @Override
-    public void specialPower() {
+    public void use() {
+        Scanner scanner = new Scanner(System.in);
+        playernumber = scanner.nextInt();
         if (playernumber == 1 && !Jester.isAlive() && !Doctor.isBusy() && Doctor.isAlive()) {
             Jester.setAlive(true);
         }/*
@@ -27,9 +28,8 @@ class Heal extends Characters implements SpecialPower {
         }*/
     }
 
-    @Override
-    public void display() {
-        // TODO Auto-generated method stub
-
+    public void printSpecialPowerStatus(){
+        System.out.printf("DOC HEAL JES");
     }
+
 }

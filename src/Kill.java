@@ -1,15 +1,17 @@
 import java.util.Scanner;
 
-class Kill extends Characters implements SpecialPower {
+class Kill implements SpecialPower {
     private int playernumber;
 
     public Kill() {
-        Scanner scanner = new Scanner(System.in);
-        playernumber = scanner.nextInt();
+
     }
 
     @Override
-    public void specialPower() {
+    public void use() {
+        Scanner scanner = new Scanner(System.in);
+        playernumber = scanner.nextInt();
+
         if (playernumber == 1 && !Jester.isProtected() && SerialKiller.isAlive() && !SerialKiller.isBusy()) {
             Jester.setAlive(false);
         }
@@ -28,10 +30,9 @@ class Kill extends Characters implements SpecialPower {
         }*/
 
     }
-
     @Override
-    public void display() {
-        // TODO Auto-generated method stub
+    public void printSpecialPowerStatus() {
 
     }
+
 }

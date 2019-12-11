@@ -1,6 +1,6 @@
 class Investigator extends Characters{
     public Investigator() {
-        setSpecialPower(Investigate());
+        setSpecialPower(new Investigate());
         setAlive(true);
         setProtected(false);
         setPlayerNumber(2);

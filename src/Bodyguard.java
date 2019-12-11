@@ -1,6 +1,6 @@
 class Bodyguard extends Characters{
     public Bodyguard() {
-        setSpecialPower(Protect());
+        setSpecialPower(new Protect());
         setAlive(true);
         setProtected(false);
         setPlayerNumber(3);

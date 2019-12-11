@@ -1,7 +1,23 @@
+import java.util.LinkedList;
+import java.util.List;
 
+public abstract class Characters implements Observable {
+    List<Observer> observers = new LinkedList<Observer>();
 
-public abstract class Characters {
     SpecialPower specialPower;
+
+    @Override
+    public void notifyObservers() {
+        for (Observer ob:observers) {
+            ob.update(this);
+        }
+    }
+
+    @Override
+    public void registerObserver(Observer o) {
+        observers.add(o);
+    }
+
     private static boolean isAlive;
     private static boolean isProtected;
 
@@ -10,6 +26,10 @@ public abstract class Characters {
 
     int playerNumber;
 
+    public void useSpecialPower(){
+        specialPower.use();
+        notifyObservers();
+    }
 
     public SpecialPower getSpecialPower() {
         return specialPower;
@@ -49,6 +69,8 @@ public abstract class Characters {
     }
 
     public abstract void display();
+
+
 }
 
 

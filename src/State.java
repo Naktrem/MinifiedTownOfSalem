@@ -4,6 +4,7 @@ public interface State {
     boolean canMurder();
     boolean canInvestigate();
     boolean canProtect();
-
     boolean canExecute();
+    void dayEnd();
+    void dayBegin();
 }

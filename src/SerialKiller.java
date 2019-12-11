@@ -1,6 +1,6 @@
 class SerialKiller extends Characters{
     public SerialKiller() {
-        setSpecialPower(Kill());
+        setSpecialPower(new Kill());
         setAlive(true);
         setProtected(false);
         setPlayerNumber(5);

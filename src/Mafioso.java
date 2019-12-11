@@ -1,6 +1,6 @@
 class Mafioso extends Characters{
     public Mafioso() {
-        setSpecialPower(Murder());
+        setSpecialPower(new Murder());
         setAlive(true);
         setProtected(false);
         setPlayerNumber(6);
