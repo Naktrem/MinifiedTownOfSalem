@@ -12,19 +12,19 @@ class Jest implements SpecialPower {
         Scanner scanner = new Scanner(System.in);
         playernumber = scanner.nextInt();
         if (playernumber == 2 && Jester.isAlive()) {
-            Investigator.setAlive(false);
+            Investigator.setBusy(true);
         }
         if (playernumber == 3 && Jester.isAlive()) {
-            Bodyguard.setAlive(false);
+            Bodyguard.setBusy(true);
         }
         if (playernumber == 4 && Jester.isAlive()) {
-            Doctor.setAlive(false);
+            Doctor.setBusy(true);
         }
         if (playernumber == 5 && Jester.isAlive()) {
-            SerialKiller.setAlive(false);
+            SerialKiller.setBusy(true);
         }
         if (playernumber == 6 && Jester.isAlive()) {
-            Mafioso.setAlive(false);
+            Mafioso.setBusy(true);
         }
 
     }
