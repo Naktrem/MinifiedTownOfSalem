@@ -1,9 +1,10 @@
-public class Jester extends Characters{
-    public Jester() {
-        setSpecialPower(new Jest());
+class Bodyguard extends Characters{
+    public Bodyguard() {
+        setSpecialPower(Protect());
         setAlive(true);
         setProtected(false);
-        setPlayerNumber(1);
+        setPlayerNumber(3);
+        setBusy(false);
         // TODO Auto-generated constructor stub
     }
 
