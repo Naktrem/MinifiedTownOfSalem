@@ -1,9 +1,10 @@
-public class Jester extends Characters{
-    public Jester() {
-        setSpecialPower(new Jest());
+class SerialKiller extends Characters{
+    public SerialKiller() {
+        setSpecialPower(Kill());
         setAlive(true);
         setProtected(false);
-        setPlayerNumber(1);
+        setPlayerNumber(5);
+        setBusy(false);
         // TODO Auto-generated constructor stub
     }
 

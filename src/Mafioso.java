@@ -1,9 +1,10 @@
-public class Jester extends Characters{
-    public Jester() {
-        setSpecialPower(new Jest());
+class Mafioso extends Characters{
+    public Mafioso() {
+        setSpecialPower(Murder());
         setAlive(true);
         setProtected(false);
-        setPlayerNumber(1);
+        setPlayerNumber(6);
+        setBusy(false);
         // TODO Auto-generated constructor stub
     }
 

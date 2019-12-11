@@ -53,71 +53,15 @@ public abstract class Characters {
     public abstract void display();
 }
 
-/*
-class Investigator extends Characters{
-	public Investigator() {
-		specialPower = new Investigate();
-		isAlive = true;
-		isProtected = false;
-		playerNumber = 2;
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void display() {
-		// TODO Auto-generated method stub
-
-	}
-}
-class Bodyguard extends Characters{
-	public Bodyguard() {
-		specialPower = new Protect();
-		isAlive = true;
-		isProtected = false;
-		playerNumber = 3;
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void display() {
-		// TODO Auto-generated method stub
-
-	}
-}
-
-class SerialKiller extends Characters{
-	public SerialKiller() {
-		specialPower = new Kill();
-		isAlive = true;
-		isProtected = false;
-		playerNumber = 5;
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void display() {
-		// TODO Auto-generated method stub
-
-	}
-}
-class Mafioso extends Characters{
-	public Mafioso() {
-		specialPower = new Murder();
-		isAlive = true;
-		isProtected = false;
-		playerNumber = 6;
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void display() {
-		// TODO Auto-generated method stub
-
-	}
-}
 
 
- */
+
+
+
+
+
+
+
 
 
 
