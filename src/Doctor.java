@@ -8,7 +8,7 @@ public class Doctor extends Characters{
 
     @Override
     public void display() {
-        System.out.println("jahd");
+        System.out.println("Entered display");
     }
 
 }

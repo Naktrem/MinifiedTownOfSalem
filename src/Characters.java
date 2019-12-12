@@ -2,9 +2,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Characters implements Observable {
-    List<Observer> observers = new LinkedList<Observer>();
-
-    SpecialPower specialPower;
+    private static boolean isAlive;
+    private static boolean isProtected;
+    private static boolean isBusy;
+    private int playerNumber;
+    public List<Observer> observers = new LinkedList<>();
+    public SpecialPower specialPower;
 
     @Override
     public void notifyObservers() {
@@ -17,14 +20,6 @@ public abstract class Characters implements Observable {
     public void registerObserver(Observer o) {
         observers.add(o);
     }
-
-    private static boolean isAlive;
-    private static boolean isProtected;
-
-
-    private static boolean isBusy;
-
-    int playerNumber;
 
     public void useSpecialPower(){
         specialPower.use();
@@ -58,7 +53,6 @@ public abstract class Characters implements Observable {
     public static boolean isBusy() { return isBusy; }
 
     public static void setBusy(boolean isBusy) { Characters.isBusy = isBusy; }
-
 
     public int getPlayerNumber() {
         return playerNumber;
