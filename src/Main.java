@@ -39,12 +39,15 @@ public class Main {
 */
         System.out.println("First night...");
 
-        Character doc = town.getIterator().getNext();
-        doc.registerObserver(eventObserver);
-        doc.display();
-        doc.useSpecialPower();
 
-        memento.save(town.getCharacters(), doc.getSpecialPowerDisplayStatus());
+        for(int i = 1; i < 7; i++){
+            Character doc = town.getIterator().getNext();
+            doc.registerObserver(eventObserver);
+            doc.display();
+            doc.useSpecialPower();
+            memento.save(town.getCharacters(), doc.getSpecialPowerDisplayStatus());
+        }
+
 
 
 
