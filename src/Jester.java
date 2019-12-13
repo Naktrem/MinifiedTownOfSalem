@@ -1,4 +1,4 @@
-public class Jester extends Characters{
+public class Jester extends Character {
     public Jester() {
         setSpecialPower(new Jest());
         setAlive(true);

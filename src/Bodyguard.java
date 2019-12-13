@@ -1,4 +1,4 @@
-class Bodyguard extends Characters{
+class Bodyguard extends Character {
     public Bodyguard() {
         setSpecialPower(new Protect());
         setAlive(true);

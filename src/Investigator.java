@@ -1,4 +1,4 @@
-class Investigator extends Characters{
+class Investigator extends Character {
     public Investigator() {
         setSpecialPower(new Investigate());
         setAlive(true);

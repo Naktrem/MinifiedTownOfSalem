@@ -1,4 +1,4 @@
-class SerialKiller extends Characters{
+class SerialKiller extends Character {
     public SerialKiller() {
         setSpecialPower(new Kill());
         setAlive(true);

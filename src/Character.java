@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.List;
 
-public abstract class Characters implements Observable {
+public abstract class Character implements Observable {
     private static boolean isAlive;
     private static boolean isProtected;
     private static boolean isBusy;
@@ -39,7 +39,7 @@ public abstract class Characters implements Observable {
     }
 
     public static void setAlive(boolean isAlive) {
-        Characters.isAlive = isAlive;
+        Character.isAlive = isAlive;
     }
 
     public static boolean isProtected() {
@@ -47,12 +47,12 @@ public abstract class Characters implements Observable {
     }
 
     public static void setProtected(boolean isProtected) {
-        Characters.isProtected = isProtected;
+        Character.isProtected = isProtected;
     }
 
     public static boolean isBusy() { return isBusy; }
 
-    public static void setBusy(boolean isBusy) { Characters.isBusy = isBusy; }
+    public static void setBusy(boolean isBusy) { Character.isBusy = isBusy; }
 
     public int getPlayerNumber() {
         return playerNumber;

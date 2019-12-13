@@ -39,7 +39,9 @@ public class Main {
 
         System.out.println("First night...");
 
-        town.getIterator().getNext().display();
+        eventObserver.update(town.getIterator().getNext());
+
+        System.out.println(town.getIterator().getNext());
 
 
 

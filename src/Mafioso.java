@@ -1,4 +1,4 @@
-class Mafioso extends Characters{
+class Mafioso extends Character {
     public Mafioso() {
         setSpecialPower(new Murder());
         setAlive(true);

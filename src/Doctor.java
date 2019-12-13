@@ -1,4 +1,4 @@
-public class Doctor extends Characters{
+public class Doctor extends Character {
     public Doctor() {
         setSpecialPower(new Heal());
         setAlive(true);

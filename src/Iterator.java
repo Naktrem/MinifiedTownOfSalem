@@ -1,4 +1,4 @@
 public interface Iterator {
-    public Characters getNext();
+    public Character getNext();
     public boolean hasNext();
 }

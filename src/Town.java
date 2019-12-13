@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Town{
-    private ArrayList<Characters> characters;
+    private ArrayList<Character> characters;
     private State dayState;
     private State nightState;
     private State currentState;
