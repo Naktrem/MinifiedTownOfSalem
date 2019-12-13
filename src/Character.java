@@ -26,6 +26,8 @@ public abstract class Character implements Observable {
         notifyObservers();
     }
 
+    public abstract String getSpecialPowerDisplayStatus();
+
     public SpecialPower getSpecialPower() {
         return specialPower;
     }

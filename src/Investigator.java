@@ -8,6 +8,12 @@ class Investigator extends Character {
     }
 
     @Override
+    public String getSpecialPowerDisplayStatus() {
+        return null;
+    }
+
+
+    @Override
     public void display() {
         // TODO Auto-generated method stub
 

@@ -14,6 +14,12 @@ public class Jester extends Character {
     }
 
     @Override
+    public String getSpecialPowerDisplayStatus() {
+        return null;
+    }
+
+
+    @Override
     public void useSpecialPower() {
         setSpecialPower(new Heal());
         notifyObservers();

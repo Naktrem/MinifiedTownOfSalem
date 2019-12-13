@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Town town = new Town();
-
+        Memento memento = new Memento();
         EventObserver eventObserver = new EventObserver();
         Scanner scanner = new Scanner(System.in);
-
+/*
         for(int i = 1; i < 7; i++){
             System.out.println("Press enter to reveal player " + i +"...");
             String readLine = scanner.nextLine();
@@ -36,12 +36,17 @@ public class Main {
                 System.out.println("#\n#\n#\n#\n#\n#\n#\n#\n#\n");
             }
         }
-
+*/
         System.out.println("First night...");
 
-        eventObserver.update(town.getIterator().getNext());
+        Character doc = town.getIterator().getNext();
+        doc.registerObserver(eventObserver);
+        doc.display();
+        doc.useSpecialPower();
 
-        System.out.println(town.getIterator().getNext());
+        memento.save(town.getCharacters(), doc.getSpecialPowerDisplayStatus());
+
+
 
 
 

@@ -47,6 +47,10 @@ public class Town{
         return iterator;
     }
 
+    public ArrayList<Character> getCharacters(){
+        return characters;
+    }
+
     public State getDayState() {
         return dayState;
     }
