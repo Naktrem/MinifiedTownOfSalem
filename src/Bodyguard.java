@@ -1,21 +1,21 @@
 class Bodyguard extends Character {
+    Protect protect;
     public Bodyguard() {
-        setSpecialPower(new Protect());
+        protect = new Protect();
+        setSpecialPower(protect);
         setAlive(true);
         setProtected(false);
         setPlayerNumber(3);
         setBusy(false);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
     public String getSpecialPowerDisplayStatus() {
-        return null;
+        return protect.getProtectStatus();
     }
 
     @Override
     public void display() {
-        // TODO Auto-generated method stub
-
+        System.out.print("Choose who to guard: \n--> ");
     }
 }

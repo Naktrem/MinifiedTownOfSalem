@@ -40,14 +40,25 @@ public class Main {
         System.out.println("First night...");
 
 
-        for(int i = 1; i < 7; i++){
-            Character doc = town.getIterator().getNext();
-            doc.registerObserver(eventObserver);
-            doc.display();
-            doc.useSpecialPower();
-            memento.save(town.getCharacters(), doc.getSpecialPowerDisplayStatus());
-        }
+        while(true) {
+            for (int i = 1; i < 7; i++) {
+                Character character = town.getIterator().getNext();
+                character.registerObserver(eventObserver);
+                character.display();
+                character.useSpecialPower();
+                memento.setActions(character.getSpecialPowerDisplayStatus());
+            }
+            memento.save(town.getCharacters());
 
+            for (int i = 1; i < 7; i++) {
+                Character character = town.getIterator().getNext();
+                character.setBusyNS(false);
+            }
+
+            System.out.println("Night ended!");
+            System.out.println(memento.getActions(0));
+            town.setDayState(new DayState(town));
+        }
 
 
 

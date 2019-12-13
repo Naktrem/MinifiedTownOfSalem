@@ -1,6 +1,8 @@
 class Investigator extends Character {
+    Investigate investigation;
     public Investigator() {
-        setSpecialPower(new Investigate());
+        investigation = new Investigate();
+        setSpecialPower(investigation);
         setAlive(true);
         setProtected(false);
         setPlayerNumber(2);
@@ -9,13 +11,12 @@ class Investigator extends Character {
 
     @Override
     public String getSpecialPowerDisplayStatus() {
-        return null;
+        return investigation.getInvestigationStatus();
     }
 
 
     @Override
     public void display() {
-        // TODO Auto-generated method stub
-
+        System.out.print("Choose who to investigate: \n--> ");
     }
 }

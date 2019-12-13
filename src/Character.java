@@ -56,6 +56,8 @@ public abstract class Character implements Observable {
 
     public static void setBusy(boolean isBusy) { Character.isBusy = isBusy; }
 
+    public void setBusyNS(boolean isBusy){ Character.isBusy = isBusy; }
+
     public int getPlayerNumber() {
         return playerNumber;
     }

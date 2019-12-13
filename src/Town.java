@@ -25,18 +25,19 @@ public class Town{
     }
 
     private void initializeCharacters(){
-        doc = new Doctor();
         jester = new Jester();
         investigator = new Investigator();
-        mafioso = new Mafioso();
-        serialKiller = new SerialKiller();
         bodyguard = new Bodyguard();
-        characters.add(doc);
+        doc = new Doctor();
+        serialKiller = new SerialKiller();
+        mafioso = new Mafioso();
+
         characters.add(jester);
         characters.add(investigator);
-        characters.add(mafioso);
-        characters.add(serialKiller);
         characters.add(bodyguard);
+        characters.add(doc);
+        characters.add(serialKiller);
+        characters.add(mafioso);
     }
 
     private void addCharactersToIterator(){

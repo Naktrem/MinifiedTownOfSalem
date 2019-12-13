@@ -8,11 +8,19 @@ class Kill implements SpecialPower {
     public Kill() {
 
     }
+    public String getKillStatus(){
+        return killStatus;
+    }
+
 
     @Override
     public void use() {
         Scanner scanner = new Scanner(System.in);
         playernumber = scanner.nextInt();
+        if (playernumber == 5) {
+            System.out.print("You cannot choose yourself! Choose again \n--> ");
+            use();
+        }
         if ((playernumber == 1 && Jester.isProtected()) || (playernumber == 2 && Investigator.isProtected()) || (playernumber == 3 && !Bodyguard.isProtected()) || (playernumber == 4 && !Doctor.isProtected())) {
             killStatus = "Serial killer couldnt kill the target because he/she was protected.";
         } else {
@@ -35,17 +43,15 @@ class Kill implements SpecialPower {
                     Doctor.setAlive(false);
                     killStatus = "Mafia kill Doctor.";
                 }
-        /*
-        if (playernumber == 6 && !Mafioso.isProtected() && SerialKiller.isAlive() && !SerialKiller.isBusy()) {
-            Mafioso.setAlive(false);
-        }*/
+                if (playernumber == 6 && !Mafioso.isProtected() && SerialKiller.isAlive() && !SerialKiller.isBusy()) {
+                    killStatus = "Mafia can't kill mafia.";
+                }
             }
         }
     }
     @Override
     public void printSpecialPowerStatus() {
-        System.out.println(killStatus);
-
+        System.out.println("You decided to go to player " + playernumber);
     }
 
 }

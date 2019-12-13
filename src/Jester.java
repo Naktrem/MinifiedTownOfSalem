@@ -1,27 +1,22 @@
 public class Jester extends Character {
+    Jest jest;
     public Jester() {
-        setSpecialPower(new Jest());
+        jest = new Jest();
+        setSpecialPower(jest);
         setAlive(true);
         setProtected(false);
         setPlayerNumber(1);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
     public void display() {
-        // TODO Auto-generated method stub
-
+        System.out.print("Choose who to jest: \n--> ");
     }
 
     @Override
     public String getSpecialPowerDisplayStatus() {
-        return null;
+        return jest.getJestStatus();
     }
 
 
-    @Override
-    public void useSpecialPower() {
-        setSpecialPower(new Heal());
-        notifyObservers();
-    }
 }
