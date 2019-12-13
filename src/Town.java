@@ -25,12 +25,12 @@ public class Town{
     }
 
     private void initializeCharacters(){
-        jester = new Jester();
-        investigator = new Investigator();
-        bodyguard = new Bodyguard();
-        doc = new Doctor();
-        serialKiller = new SerialKiller();
-        mafioso = new Mafioso();
+        jester = new Jester(this);
+        investigator = new Investigator(this);
+        bodyguard = new Bodyguard(this);
+        doc = new Doctor(this);
+        serialKiller = new SerialKiller(this);
+        mafioso = new Mafioso(this);
 
         characters.add(jester);
         characters.add(investigator);

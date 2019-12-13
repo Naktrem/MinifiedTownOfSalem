@@ -1,7 +1,7 @@
 public class Doctor extends Character {
     Heal heal;
-    public Doctor() {
-        heal = new Heal();
+    public Doctor(Town town) {
+        heal = new Heal(town);
         setSpecialPower(heal);
         setAlive(true);
         setProtected(false);

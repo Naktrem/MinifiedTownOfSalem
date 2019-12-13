@@ -2,9 +2,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Character implements Observable {
-    private static boolean isAlive;
-    private static boolean isProtected;
-    private static boolean isBusy;
+    private boolean isAlive;
+    private boolean isProtected;
+    private boolean isBusy;
     private int playerNumber;
     public List<Observer> observers = new LinkedList<>();
     public SpecialPower specialPower;
@@ -36,27 +36,25 @@ public abstract class Character implements Observable {
         this.specialPower = specialPower;
     }
 
-    public static boolean isAlive() {
+    public boolean isAlive() {
         return isAlive;
     }
 
-    public static void setAlive(boolean isAlive) {
-        Character.isAlive = isAlive;
+    public void setAlive(boolean isAlive) {
+        this.isAlive = isAlive;
     }
 
-    public static boolean isProtected() {
+    public boolean isProtected() {
         return isProtected;
     }
 
-    public static void setProtected(boolean isProtected) {
-        Character.isProtected = isProtected;
+    public void setProtected(boolean isProtected) {
+        this.isProtected = isProtected;
     }
 
-    public static boolean isBusy() { return isBusy; }
+    public boolean isBusy() { return isBusy; }
 
-    public static void setBusy(boolean isBusy) { Character.isBusy = isBusy; }
-
-    public void setBusyNS(boolean isBusy){ Character.isBusy = isBusy; }
+    public void setBusy(boolean isBusy) { this.isBusy = isBusy; }
 
     public int getPlayerNumber() {
         return playerNumber;

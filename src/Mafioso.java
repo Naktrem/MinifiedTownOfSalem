@@ -1,7 +1,7 @@
 class Mafioso extends Character {
     Murder murder;
-    public Mafioso() {
-        murder = new Murder();
+    public Mafioso(Town town) {
+        murder = new Murder(town);
         setSpecialPower(murder);
         setAlive(true);
         setProtected(false);

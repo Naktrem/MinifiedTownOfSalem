@@ -1,7 +1,7 @@
 class Investigator extends Character {
     Investigate investigation;
-    public Investigator() {
-        investigation = new Investigate();
+    public Investigator(Town town) {
+        investigation = new Investigate(town);
         setSpecialPower(investigation);
         setAlive(true);
         setProtected(false);

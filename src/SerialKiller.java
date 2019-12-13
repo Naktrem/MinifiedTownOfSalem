@@ -1,7 +1,7 @@
 class SerialKiller extends Character {
     Kill kill;
-    public SerialKiller() {
-        kill = new Kill();
+    public SerialKiller(Town town) {
+        kill = new Kill(town);
         setSpecialPower(kill);
         setAlive(true);
         setProtected(false);

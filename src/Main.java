@@ -5,6 +5,7 @@ public class Main {
         Town town = new Town();
         Memento memento = new Memento();
         EventObserver eventObserver = new EventObserver();
+        int  dayCounter = 0;
         Scanner scanner = new Scanner(System.in);
 /*
         for(int i = 1; i < 7; i++){
@@ -41,6 +42,7 @@ public class Main {
 
 
         while(true) {
+            System.out.println("###########  DAY " + dayCounter);
             for (int i = 1; i < 7; i++) {
                 Character character = town.getIterator().getNext();
                 character.registerObserver(eventObserver);
@@ -52,10 +54,11 @@ public class Main {
 
             for (int i = 1; i < 7; i++) {
                 Character character = town.getIterator().getNext();
-                character.setBusyNS(false);
+                character.setBusy(false);
             }
 
             System.out.println("Night ended!");
+
             System.out.println(memento.getActions(0));
             town.setDayState(new DayState(town));
         }

@@ -1,7 +1,7 @@
 class Bodyguard extends Character {
     Protect protect;
-    public Bodyguard() {
-        protect = new Protect();
+    public Bodyguard(Town town) {
+        protect = new Protect(town);
         setSpecialPower(protect);
         setAlive(true);
         setProtected(false);

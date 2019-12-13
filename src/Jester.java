@@ -1,7 +1,7 @@
 public class Jester extends Character {
     Jest jest;
-    public Jester() {
-        jest = new Jest();
+    public Jester(Town town) {
+        jest = new Jest(town);
         setSpecialPower(jest);
         setAlive(true);
         setProtected(false);
