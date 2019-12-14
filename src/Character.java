@@ -2,17 +2,18 @@ import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Character implements Observable {
-    private static boolean isAlive;
-    private static boolean isProtected;
-    private static boolean isBusy;
+    private boolean isAlive;
+    private boolean isProtected;
+    private boolean isBusy;
     private int playerNumber;
     public List<Observer> observers = new LinkedList<>();
     public SpecialPower specialPower;
+    public IVote vote;
 
     @Override
-    public void notifyObservers() {
+    public void notifyObservers(boolean state) {
         for (Observer ob:observers) {
-            ob.update(this);
+            ob.update(this, state);
         }
     }
 
@@ -21,12 +22,19 @@ public abstract class Character implements Observable {
         observers.add(o);
     }
 
+    public void  castVote(){
+        vote.castVote();
+        notifyObservers(false);
+    }
+
     public void useSpecialPower(){
         specialPower.use();
-        notifyObservers();
+        notifyObservers(true);
     }
 
     public abstract String getSpecialPowerDisplayStatus();
+
+    public abstract String getVoteDisplayStatus();
 
     public SpecialPower getSpecialPower() {
         return specialPower;
@@ -36,25 +44,35 @@ public abstract class Character implements Observable {
         this.specialPower = specialPower;
     }
 
-    public static boolean isAlive() {
+    public IVote getVote(){
+        return vote;
+    }
+
+    public void setVote(IVote vote){
+        this.vote = vote;
+    }
+
+
+
+    public boolean isAlive() {
         return isAlive;
     }
 
-    public static void setAlive(boolean isAlive) {
-        Character.isAlive = isAlive;
+    public void setAlive(boolean isAlive) {
+        this.isAlive = isAlive;
     }
 
-    public static boolean isProtected() {
+    public boolean isProtected() {
         return isProtected;
     }
 
-    public static void setProtected(boolean isProtected) {
-        Character.isProtected = isProtected;
+    public void setProtected(boolean isProtected) {
+        this.isProtected = isProtected;
     }
 
-    public static boolean isBusy() { return isBusy; }
+    public boolean isBusy() { return isBusy; }
 
-    public static void setBusy(boolean isBusy) { Character.isBusy = isBusy; }
+    public void setBusy(boolean isBusy) { this.isBusy = isBusy; }
 
     public int getPlayerNumber() {
         return playerNumber;
@@ -64,7 +82,7 @@ public abstract class Character implements Observable {
         this.playerNumber = playerNumber;
     }
 
-    public abstract void display();
+    public abstract void display(boolean action);
 
 
 }

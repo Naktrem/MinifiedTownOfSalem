@@ -12,7 +12,7 @@ public class Memento implements IMemento{
         characterStates = new HashMap<>();
     }
 
-    private void setActions(String actions){
+    public void setActions(String actions){
         this.actions.add(actions);
     }
 
@@ -21,12 +21,16 @@ public class Memento implements IMemento{
     }
 
     public String getActions(int round){
-        return this.actions.get(round);
+        String str = "\n";
+        for(String s : actions){
+            str += (s+"\n");
+        }
+        return str;
+        //return this.actions.get(round);
     }
 
-    public void save(ArrayList<Character> characterStates, String actionsStatus){
+    public void save(ArrayList<Character> characterStates){
         this.characterStates.put(roundCounter, characterStates);
-        setActions(actionsStatus);
         roundCounter++;
     }
 

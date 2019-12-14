@@ -1,27 +1,36 @@
 public class Jester extends Character {
-    public Jester() {
-        setSpecialPower(new Jest());
+    Jest jest;
+    private Vote vote;
+
+    public Jester(Town town) {
+        vote =  new Vote(this, town);
+        setVote(vote);
+        jest = new Jest(town);
+        setSpecialPower(jest);
         setAlive(true);
         setProtected(false);
         setPlayerNumber(1);
-        // TODO Auto-generated constructor stub
+    }
+
+
+    @Override
+    public void display(boolean action) {
+        if(action) {
+            System.out.print("Choose who to jest: \n--> ");
+        }else{
+            System.out.print("Choose who to execute: \n--> ");
+        }
     }
 
     @Override
-    public void display() {
-        // TODO Auto-generated method stub
-
+    public String getVoteDisplayStatus() {
+        return vote.getVoteStatus();
     }
 
     @Override
     public String getSpecialPowerDisplayStatus() {
-        return null;
+        return jest.getJestStatus();
     }
 
 
-    @Override
-    public void useSpecialPower() {
-        setSpecialPower(new Heal());
-        notifyObservers();
-    }
 }

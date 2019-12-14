@@ -1,22 +1,34 @@
 class SerialKiller extends Character {
-    public SerialKiller() {
-        setSpecialPower(new Kill());
+    Kill kill;
+    private Vote vote;
+
+    public SerialKiller(Town town) {
+        vote =  new Vote(this, town);
+        setVote(vote);
+        kill = new Kill(town);
+        setSpecialPower(kill);
         setAlive(true);
         setProtected(false);
         setPlayerNumber(5);
         setBusy(false);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
     public String getSpecialPowerDisplayStatus() {
-        return null;
+        return kill.getKillStatus();
     }
 
+    @Override
+    public String getVoteDisplayStatus() {
+        return vote.getVoteStatus();
+    }
 
     @Override
-    public void display() {
-        // TODO Auto-generated method stub
-
+    public void display(boolean action) {
+        if(action) {
+            System.out.print("Choose who to kill: \n--> ");
+        }else{
+            System.out.print("Choose who to execute: \n--> ");
+        }
     }
 }

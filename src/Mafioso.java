@@ -1,22 +1,34 @@
 class Mafioso extends Character {
-    public Mafioso() {
-        setSpecialPower(new Murder());
+    Murder murder;
+    private Vote vote;
+
+    public Mafioso(Town town) {
+        vote =  new Vote(this, town);
+        setVote(vote);
+        murder = new Murder(town);
+        setSpecialPower(murder);
         setAlive(true);
         setProtected(false);
         setPlayerNumber(6);
         setBusy(false);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
     public String getSpecialPowerDisplayStatus() {
-        return null;
+        return murder.getMurderStatus();
     }
 
+    @Override
+    public String getVoteDisplayStatus() {
+        return vote.getVoteStatus();
+    }
 
     @Override
-    public void display() {
-        // TODO Auto-generated method stub
-
+    public void display(boolean action) {
+        if(action) {
+            System.out.print("Choose who to murder: \n--> ");
+        }else{
+            System.out.print("Choose who to execute: \n--> ");
+        }
     }
 }

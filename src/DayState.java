@@ -6,42 +6,11 @@ public class DayState implements State{
     }
 
     @Override
-    public boolean canHeal() {
-        return false;
-    }
+    public boolean actionState(){return false;}
 
     @Override
-    public boolean canKill() {
-        return false;
+    public void timeState(){
+        town.setCurrentState(this);
     }
 
-    @Override
-    public boolean canMurder() {
-        return false;
-    }
-
-    @Override
-    public boolean canInvestigate() {
-        return false;
-    }
-
-    @Override
-    public boolean canProtect() {
-        return false;
-    }
-
-    @Override
-    public boolean canExecute() {
-        return true;
-    }
-
-    @Override
-    public void dayEnd(){
-        town.setCurrentState(town.getNightState());
-    }
-
-    @Override
-    public void dayBegin() {
-
-    }
 }

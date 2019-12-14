@@ -3,8 +3,13 @@ import java.util.Scanner;
 class Investigate implements SpecialPower {
     private int playernumber;
     private String output;
-    public Investigate() {
+    private Town town;
+    public Investigate(Town town) {
+        this.town = town;
+    }
 
+    public String getInvestigationStatus(){
+        return output;
     }
 
     @Override
@@ -12,23 +17,24 @@ class Investigate implements SpecialPower {
         Scanner scanner = new Scanner(System.in);
         playernumber = scanner.nextInt();
 
-        if (Investigator.isBusy()){
-            output = "Investigator was busy";
+        if (playernumber == 2) {
+            System.out.print("You cannot choose yourself! Choose again \n--> ");
+            use();
         }else {
-            if (playernumber == 1 && Investigator.isAlive() && !Investigator.isBusy()) {
-                output = "Investigator invest Jester";
-            }
-            if (playernumber == 3 && Investigator.isAlive() && !Investigator.isBusy()) {
-                output = "Investigator invest Bodyguard";
-            }
-            if (playernumber == 4 && Investigator.isAlive() && !Investigator.isBusy()) {
-                output = "Investigator invest Doctor";
-            }
-            if (playernumber == 5 && Investigator.isAlive() && !Investigator.isBusy()) {
-                output = "Investigator invest Serial Killer";
-            }
-            if (playernumber == 6 && Investigator.isAlive() && !Investigator.isBusy()) {
-                output = "Investigator invest Mafioso";
+            if (town.getCharacters().get(1).isBusy()) {
+                output = "You are busy with the jester!";
+            } else {
+                if (playernumber == 1 && town.getCharacters().get(1).isAlive() && !town.getCharacters().get(1).isBusy()) {
+                    output = "Investigator investigated Jester";
+                }  if (playernumber == 3 && town.getCharacters().get(1).isAlive() && !town.getCharacters().get(1).isBusy()) {
+                    output = "Investigator investigated Bodyguard";
+                }  if (playernumber == 4 && town.getCharacters().get(1).isAlive() && !town.getCharacters().get(1).isBusy()) {
+                    output = "Investigator investigated Doctor";
+                }  if (playernumber == 5 && town.getCharacters().get(1).isAlive() && !town.getCharacters().get(1).isBusy()) {
+                    output = "Investigator investigated Serial Killer";
+                }  if (playernumber == 6 && town.getCharacters().get(1).isAlive() && !town.getCharacters().get(1).isBusy()) {
+                    output = "Investigator investigated Mafioso";
+                }
             }
         }
     }

@@ -3,40 +3,53 @@ import java.util.Scanner;
 class Protect implements SpecialPower {
     private int playernumber;
     private String protectStatus;
-    public Protect() {
-
+    private Town town;
+    public Protect(Town town) {
+        this.town = town;
     }
+
+    public String getProtectStatus(){
+        return protectStatus;
+    }
+
 
     @Override
     public void use() {
         Scanner scanner = new Scanner(System.in);
         playernumber = scanner.nextInt();
-        if (Bodyguard.isBusy()){
-            protectStatus = "Budyguard was busy.";
+        if (playernumber == 3) {
+            System.out.print("You cannot choose yourself! Choose again \n--> ");
+            use();
+        }
+        if (town.getCharacters().get(2).isBusy()){
+            protectStatus = "Bodyguard was busy.";
         }else {
 
-            if (playernumber == 1 && Bodyguard.isAlive() && !Bodyguard.isBusy()) {
-                Jester.setProtected(true);
-
+            if (playernumber == 1 && town.getCharacters().get(2).isAlive() && !town.getCharacters().get(2).isBusy()) {
+                town.getCharacters().get(0).setProtected(true);
+                protectStatus = "Bodyguard protecting Jester";
             }
-            if (playernumber == 2 && Bodyguard.isAlive() && !Bodyguard.isBusy()) {
-                Investigator.setProtected(true);
-
+            if (playernumber == 2 && town.getCharacters().get(2).isAlive() && !town.getCharacters().get(2).isBusy()) {
+                town.getCharacters().get(1).setProtected(true);
+                protectStatus = "Bodyguard protecting Investigator";
             }
-            if (playernumber == 4 && Bodyguard.isAlive() && !Bodyguard.isBusy()) {
-                Doctor.setProtected(true);
+            if (playernumber == 4 && town.getCharacters().get(2).isAlive() && !town.getCharacters().get(2).isBusy()) {
+                town.getCharacters().get(3).setProtected(true);
+                protectStatus = "Bodyguard protecting Doctor";
             }
-            if (playernumber == 5 && Bodyguard.isAlive() && !Bodyguard.isBusy()) {
-                SerialKiller.setProtected(true);
+            if (playernumber == 5 && town.getCharacters().get(2).isAlive() && !town.getCharacters().get(2).isBusy()) {
+                town.getCharacters().get(4).setProtected(true);
+                protectStatus = "Bodyguard protecting SerialKiller";
             }
-            if (playernumber == 6 && Bodyguard.isAlive() && !Bodyguard.isBusy()) {
-                Mafioso.setProtected(true);
+            if (playernumber == 6 && town.getCharacters().get(2).isAlive() && !town.getCharacters().get(2).isBusy()) {
+                town.getCharacters().get(5).setProtected(true);
+                protectStatus = "Bodyguard protecting Mafioso";
             }
         }
     }
     @Override
     public void printSpecialPowerStatus() {
-        System.out.println(protectStatus);
+        System.out.println("You decided to go to player " + playernumber);
     }
 
 }

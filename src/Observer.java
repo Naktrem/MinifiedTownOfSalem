@@ -1,3 +1,3 @@
 public interface Observer {
-    void update(Character character);
+    void update(Character character, boolean state);
 }
