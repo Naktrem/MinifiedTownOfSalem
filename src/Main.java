@@ -41,11 +41,11 @@ public class Main {
 
 
         for(int i = 1; i < 7; i++){
-            Character doc = town.getIterator().getNext();
-            doc.registerObserver(eventObserver);
-            doc.display();
-            doc.useSpecialPower();
-            memento.save(town.getCharacters(), doc.getSpecialPowerDisplayStatus());
+            Character character = town.getIterator().getNext();
+            character.registerObserver(eventObserver);
+            character.display();
+            character.useSpecialPower();
+            memento.save(town.getCharacters(), character.getSpecialPowerDisplayStatus());
         }
 
 
