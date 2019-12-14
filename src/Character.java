@@ -8,11 +8,12 @@ public abstract class Character implements Observable {
     private int playerNumber;
     public List<Observer> observers = new LinkedList<>();
     public SpecialPower specialPower;
+    public IVote vote;
 
     @Override
-    public void notifyObservers() {
+    public void notifyObservers(boolean state) {
         for (Observer ob:observers) {
-            ob.update(this);
+            ob.update(this, state);
         }
     }
 
@@ -21,12 +22,19 @@ public abstract class Character implements Observable {
         observers.add(o);
     }
 
+    public void  castVote(){
+        vote.castVote();
+        notifyObservers(false);
+    }
+
     public void useSpecialPower(){
         specialPower.use();
-        notifyObservers();
+        notifyObservers(true);
     }
 
     public abstract String getSpecialPowerDisplayStatus();
+
+    public abstract String getVoteDisplayStatus();
 
     public SpecialPower getSpecialPower() {
         return specialPower;
@@ -35,6 +43,16 @@ public abstract class Character implements Observable {
     public void setSpecialPower(SpecialPower specialPower) {
         this.specialPower = specialPower;
     }
+
+    public IVote getVote(){
+        return vote;
+    }
+
+    public void setVote(IVote vote){
+        this.vote = vote;
+    }
+
+
 
     public boolean isAlive() {
         return isAlive;
@@ -64,7 +82,7 @@ public abstract class Character implements Observable {
         this.playerNumber = playerNumber;
     }
 
-    public abstract void display();
+    public abstract void display(boolean action);
 
 
 }

@@ -1,6 +1,10 @@
 class Bodyguard extends Character {
     Protect protect;
+    private Vote vote;
+
     public Bodyguard(Town town) {
+        vote =  new Vote(this, town);
+        setVote(vote);
         protect = new Protect(town);
         setSpecialPower(protect);
         setAlive(true);
@@ -15,7 +19,16 @@ class Bodyguard extends Character {
     }
 
     @Override
-    public void display() {
-        System.out.print("Choose who to guard: \n--> ");
+    public String getVoteDisplayStatus() {
+        return vote.getVoteStatus();
+    }
+
+    @Override
+    public void display(boolean action) {
+        if(action) {
+            System.out.print("Choose who to guard: \n--> ");
+        }else{
+            System.out.print("Choose who to execute: \n--> ");
+        }
     }
 }

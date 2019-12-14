@@ -1,10 +1,11 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Town town = new Town();
         Memento memento = new Memento();
         EventObserver eventObserver = new EventObserver();
+        boolean isObserversRegistered = false;
         int  dayCounter = 0;
         Scanner scanner = new Scanner(System.in);
 /*
@@ -38,15 +39,17 @@ public class Main {
             }
         }
 */
-        System.out.println("First night...");
 
-
-        while(true) {
+        while(!isGameEnded(town)) {
             System.out.println("###########  DAY " + dayCounter);
+            System.out.println("Night begins");
             for (int i = 1; i < 7; i++) {
                 Character character = town.getIterator().getNext();
-                character.registerObserver(eventObserver);
-                character.display();
+                if(!isObserversRegistered) {
+                    character.registerObserver(eventObserver);
+                    isObserversRegistered = true;
+                }
+                character.display(town.getCurrentState().actionState());
                 character.useSpecialPower();
                 memento.setActions(character.getSpecialPowerDisplayStatus());
             }
@@ -57,16 +60,42 @@ public class Main {
                 character.setBusy(false);
             }
 
-            System.out.println("Night ended!");
+            System.out.println("Night ended! These things happened: ");
 
-            System.out.println(memento.getActions(0));
-            town.setDayState(new DayState(town));
+            System.out.println(memento.getActions(dayCounter));
+
+            town.setCurrentState(new DayState(town));
+            System.out.println("Day started");
+
+            for (int i = 1; i < 7; i++) {
+                Character character = town.getIterator().getNext();
+                character.display(town.getCurrentState().actionState());
+                character.castVote();
+                memento.setActions(character.getVoteDisplayStatus());
+            }
+
+            town.getCharacters().get(town.whoToExecute()).setAlive(false);
+
+            memento.save(town.getCharacters());
+            System.out.println(memento.getActions(dayCounter));
+            town.setCurrentState(new NightState(town));
+
+            dayCounter++;
         }
 
+    }
 
-
-
-
+    private static boolean isGameEnded(Town town){
+        if(!town.getCharacters().get(4).isAlive() && !town.getCharacters().get(5).isAlive()){
+            // Town won!
+            System.out.println("Town won!");
+            return true;
+        }else if(!town.getCharacters().get(0).isAlive() && !town.getCharacters().get(1).isAlive() && !town.getCharacters().get(2).isAlive() && !town.getCharacters().get(3).isAlive()){
+            // Mafia won!
+            System.out.println("Mafia won!");
+            return true;
+        }
+        return false;
     }
 
 }

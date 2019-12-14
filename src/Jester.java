@@ -1,6 +1,10 @@
 public class Jester extends Character {
     Jest jest;
+    private Vote vote;
+
     public Jester(Town town) {
+        vote =  new Vote(this, town);
+        setVote(vote);
         jest = new Jest(town);
         setSpecialPower(jest);
         setAlive(true);
@@ -8,9 +12,19 @@ public class Jester extends Character {
         setPlayerNumber(1);
     }
 
+
     @Override
-    public void display() {
-        System.out.print("Choose who to jest: \n--> ");
+    public void display(boolean action) {
+        if(action) {
+            System.out.print("Choose who to jest: \n--> ");
+        }else{
+            System.out.print("Choose who to execute: \n--> ");
+        }
+    }
+
+    @Override
+    public String getVoteDisplayStatus() {
+        return vote.getVoteStatus();
     }
 
     @Override

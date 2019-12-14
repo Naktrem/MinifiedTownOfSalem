@@ -6,42 +6,11 @@ public class NightState implements State{
     }
 
     @Override
-    public boolean canHeal() {
-        return true;
-    }
+    public boolean actionState(){return true;}
 
     @Override
-    public boolean canKill() {
-        return true;
-    }
-
-    @Override
-    public boolean canMurder() {
-        return true;
-    }
-
-    @Override
-    public boolean canInvestigate() {
-        return true;
-    }
-
-    @Override
-    public boolean canProtect() {
-        return true;
-    }
-
-    @Override
-    public boolean canExecute() {
-        return false;
-    }
-
-    public void dayBegin(){
-
-    }
-
-    @Override
-    public void dayEnd(){
-        town.setCurrentState(town.getNightState());
+    public void timeState(){
+        town.setCurrentState(this);
     }
 
 }

@@ -1,6 +1,10 @@
 class SerialKiller extends Character {
     Kill kill;
+    private Vote vote;
+
     public SerialKiller(Town town) {
+        vote =  new Vote(this, town);
+        setVote(vote);
         kill = new Kill(town);
         setSpecialPower(kill);
         setAlive(true);
@@ -14,9 +18,17 @@ class SerialKiller extends Character {
         return kill.getKillStatus();
     }
 
+    @Override
+    public String getVoteDisplayStatus() {
+        return vote.getVoteStatus();
+    }
 
     @Override
-    public void display() {
-        System.out.print("Choose who to kill: \n--> ");
+    public void display(boolean action) {
+        if(action) {
+            System.out.print("Choose who to kill: \n--> ");
+        }else{
+            System.out.print("Choose who to execute: \n--> ");
+        }
     }
 }

@@ -21,7 +21,7 @@ public class Memento implements IMemento{
     }
 
     public String getActions(int round){
-        String str = "===============================\n";
+        String str = "\n";
         for(String s : actions){
             str += (s+"\n");
         }
