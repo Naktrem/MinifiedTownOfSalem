@@ -14,6 +14,12 @@ class Investigate implements SpecialPower {
 
     @Override
     public void use() {
+        if(!town.getCharacters().get(1).isAlive()){
+            System.out.println("You are dead!");
+            output = "Investigator is dead";
+            return;
+        }
+
         Scanner scanner = new Scanner(System.in);
         playernumber = scanner.nextInt();
 

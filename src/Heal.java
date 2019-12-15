@@ -15,6 +15,11 @@ class Heal implements SpecialPower {
 
     @Override
     public void use() {
+        if(!town.getCharacters().get(3).isAlive()){
+            System.out.println("You are dead!");
+            healStatus = "Doctor is dead";
+            return;
+        }
         Scanner scanner = new Scanner(System.in);
         playernumber = scanner.nextInt();
         if (playernumber == 4) {

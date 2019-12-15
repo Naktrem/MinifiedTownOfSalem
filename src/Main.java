@@ -58,6 +58,7 @@ public class Main {
             for (int i = 1; i < 7; i++) {
                 Character character = town.getIterator().getNext();
                 character.setBusy(false);
+                character.setProtected(false);
             }
 
             System.out.println("Night ended! These things happened: ");
@@ -78,6 +79,9 @@ public class Main {
 
             memento.save(town.getCharacters());
             System.out.println(memento.getActions(dayCounter));
+
+            System.out.println("Player " + town.getCharacters().get(town.whoToExecute()) .getPlayerNumber()+ " is executed!\n");
+            town.resetBallotBox();
             town.setCurrentState(new NightState(town));
 
             dayCounter++;

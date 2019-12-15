@@ -21,7 +21,7 @@ public class Vote implements IVote {
         playerVoteNumber = scanner.nextInt();
         playerVoteNumber -= 1;
 
-        if (playerVoteNumber == character.getPlayerNumber()) {
+        if (playerVoteNumber == character.getPlayerNumber() - 1) {
             System.out.print("Maniac! Don't suicide, Vote!  \n--> ");
             castVote();
         }

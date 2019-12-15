@@ -15,6 +15,11 @@ class Jest implements SpecialPower {
 
     @Override
     public void use() {
+        if(!town.getCharacters().get(0).isAlive()){
+            System.out.println("You are dead!");
+            jestStatus = "Jester is dead";
+            return;
+        }
         Scanner scanner = new Scanner(System.in);
         playernumber = scanner.nextInt();
         if (playernumber == 1) {
