@@ -24,6 +24,7 @@ class Protect implements SpecialPower {
 
         Scanner scanner = new Scanner(System.in);
         playernumber = scanner.nextInt();
+        System.out.println("#\n#\n#\n#\n#\n#\n#\n#\n#\n");
         if (playernumber == 3) {
             System.out.print("You cannot choose yourself! Choose again \n--> ");
             use();
@@ -57,13 +58,15 @@ class Protect implements SpecialPower {
                 protectStatus = "Bodyguard protecting Mafioso";
                 return;
             }
+            System.out.println("#\n#\n#\n#\n#\n#\n#\n#\n#\n");
+        } System.out.println("#\n#\n#\n#\n#\n#\n#\n#\n#\n");
 
-        }
     }
 
     @Override
     public void printSpecialPowerStatus() {
-        System.out.println("You decided to go to player " + playernumber);
+       //s System.out.println("You decided to go to player " + playernumber);
+        System.out.printf("Your task is done\n");
     }
 
 }

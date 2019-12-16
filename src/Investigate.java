@@ -28,7 +28,7 @@ class Investigate implements SpecialPower {
             use();
         }else {
             if (town.getCharacters().get(1).isBusy()) {
-                output = "You are busy with the jester!";
+                output = "Investigator is busy with the jester!";
             } else {
                 if (playernumber == 1 && town.getCharacters().get(1).isAlive() && !town.getCharacters().get(1).isBusy()) {
                     output = "Investigator investigated Jester";
@@ -43,10 +43,12 @@ class Investigate implements SpecialPower {
                 }
             }
         }
+        System.out.println("#\n#\n#\n#\n#\n#\n#\n#\n#\n");
     }
     @Override
     public void printSpecialPowerStatus() {
-        System.out.println(output);
+      //  System.out.println(output);
+        System.out.println("Your task is done\n");
     }
 
 }

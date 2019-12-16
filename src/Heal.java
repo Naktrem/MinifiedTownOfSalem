@@ -49,10 +49,13 @@ class Heal implements SpecialPower {
             }
 
         }
+        System.out.println("#\n#\n#\n#\n#\n#\n#\n#\n#\n");
+
     }
     @Override
     public void printSpecialPowerStatus() {
-        System.out.println("You decided to go to player " + playernumber);
+      //  System.out.println("You decided to go to player " + playernumber);
+        System.out.printf("Your task is done\n");
     }
 
 

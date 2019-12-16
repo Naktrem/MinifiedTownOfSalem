@@ -71,7 +71,9 @@ public class Main {
             for (int i = 1; i < 7; i++) {
                 Character character = town.getIterator().getNext();
                 character.display(town.getCurrentState().actionState());
+                if(town.getCharacters().get(i-1).isAlive()) {
                 character.castVote();
+            }
                 memento.setActions(character.getVoteDisplayStatus());
             }
 
@@ -95,7 +97,7 @@ public class Main {
             System.out.println("Town won!");
             return true;
         }else if(!town.getCharacters().get(0).isAlive() && !town.getCharacters().get(1).isAlive() && !town.getCharacters().get(2).isAlive() && !town.getCharacters().get(3).isAlive()){
-            // Mafia won!
+             //Mafia won!
             System.out.println("Mafia won!");
             return true;
         }

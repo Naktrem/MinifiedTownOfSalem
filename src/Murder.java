@@ -23,6 +23,7 @@ class Murder implements SpecialPower {
 
         Scanner scanner = new Scanner(System.in);
         playernumber = scanner.nextInt();
+        System.out.println("#\n#\n#\n#\n#\n#\n#\n#\n#\n");
         if (playernumber == 6) {
             System.out.print("You cannot choose yourself! Choose again \n--> ");
             use();
@@ -57,10 +58,13 @@ class Murder implements SpecialPower {
                 return;
             }
             output = "Mafia coulnd't kill because target was protected";
+            System.out.println("#\n#\n#\n#\n#\n#\n#\n#\n#\n");
         }
+        System.out.println("#\n#\n#\n#\n#\n#\n#\n#\n#\n");
     }
     @Override
     public void printSpecialPowerStatus() {
-        System.out.println("You decided to go to player " + playernumber);
+       // System.out.println("You decided to go to player " + playernumber);
+        System.out.printf("Your task is done\n");
     }
 }

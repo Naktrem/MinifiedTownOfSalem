@@ -1,4 +1,4 @@
-import com.sun.javaws.IconUtil;
+//import com.sun.javaws.IconUtil;
 
 import java.util.Scanner;
 
@@ -27,6 +27,7 @@ class Kill implements SpecialPower {
 
         Scanner scanner = new Scanner(System.in);
         playernumber = scanner.nextInt();
+        System.out.println("#\n#\n#\n#\n#\n#\n#\n#\n#\n");
         if (playernumber == 5) {
             System.out.print("You cannot choose yourself! Choose again \n--> ");
             use();
@@ -60,13 +61,16 @@ class Kill implements SpecialPower {
             }
 
             killStatus = "Mafia coulnd't kill because target was protected";
-
+            System.out.println("#\n#\n#\n#\n#\n#\n#\n#\n#\n");
         }
+        System.out.println("#\n#\n#\n#\n#\n#\n#\n#\n#\n");
     }
 
     @Override
     public void printSpecialPowerStatus() {
-        System.out.println("You decided to go to player " + playernumber);
+      //  System.out.println("You decided to go to player " + playernumber);
+        System.out.printf("Your task is done\n");
+
     }
 
 }
