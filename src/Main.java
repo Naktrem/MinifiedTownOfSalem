@@ -2,11 +2,15 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        StartGame();
+    }
+
+    private static void StartGame(){
         Town town = new Town();
         Memento memento = new Memento();
         EventObserver eventObserver = new EventObserver();
         boolean isObserversRegistered = false;
-        int  dayCounter = 0;
+        int dayCounter = 0;
         Scanner scanner = new Scanner(System.in);
 /*
         for(int i = 1; i < 7; i++){
@@ -40,12 +44,12 @@ public class Main {
         }
 */
 
-        while(!isGameEnded(town)) {
+        while (!isGameEnded(town)) {
             System.out.println("###########  DAY " + dayCounter);
             System.out.println("Night begins");
             for (int i = 1; i < 7; i++) {
                 Character character = town.getIterator().getNext();
-                if(!isObserversRegistered) {
+                if (!isObserversRegistered) {
                     character.registerObserver(eventObserver);
                     isObserversRegistered = true;
                 }
@@ -70,11 +74,13 @@ public class Main {
 
             for (int i = 1; i < 7; i++) {
                 Character character = town.getIterator().getNext();
-                character.display(town.getCurrentState().actionState());
-                if(town.getCharacters().get(i-1).isAlive()) {
-                character.castVote();
-            }
-                memento.setActions(character.getVoteDisplayStatus());
+                if(character.isAlive()) {
+                    character.display(town.getCurrentState().actionState());
+                    character.castVote();
+                    memento.setActions(character.getVoteDisplayStatus());
+                }else{
+                    memento.setActions(character.getVoteDisplayStatus());
+                }
             }
 
             town.getCharacters().get(town.whoToExecute()).setAlive(false);
@@ -82,22 +88,21 @@ public class Main {
             memento.save(town.getCharacters());
             System.out.println(memento.getActions(dayCounter));
 
-            System.out.println("Player " + town.getCharacters().get(town.whoToExecute()) .getPlayerNumber()+ " is executed!\n");
+            System.out.println("Player " + town.getCharacters().get(town.whoToExecute()).getPlayerNumber() + " is executed!\n");
             town.resetBallotBox();
             town.setCurrentState(new NightState(town));
 
             dayCounter++;
         }
-
     }
 
-    private static boolean isGameEnded(Town town){
-        if(!town.getCharacters().get(4).isAlive() && !town.getCharacters().get(5).isAlive()){
+    private static boolean isGameEnded(Town town) {
+        if (!town.getCharacters().get(4).isAlive() && !town.getCharacters().get(5).isAlive()) {
             // Town won!
             System.out.println("Town won!");
             return true;
-        }else if(!town.getCharacters().get(0).isAlive() && !town.getCharacters().get(1).isAlive() && !town.getCharacters().get(2).isAlive() && !town.getCharacters().get(3).isAlive()){
-             //Mafia won!
+        } else if (!town.getCharacters().get(0).isAlive() && !town.getCharacters().get(1).isAlive() && !town.getCharacters().get(2).isAlive() && !town.getCharacters().get(3).isAlive()) {
+            //Mafia won!
             System.out.println("Mafia won!");
             return true;
         }

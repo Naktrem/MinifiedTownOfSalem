@@ -28,7 +28,7 @@ class Mafioso extends Character {
         if(action) {
             System.out.print("Choose who to murder: \n--> ");
         }else{
-            System.out.print("Choose who to execute: \n--> ");
+            System.out.print("Player 6 choose who to execute: \n--> ");
         }
     }
 }

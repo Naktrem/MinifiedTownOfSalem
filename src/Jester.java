@@ -18,7 +18,7 @@ public class Jester extends Character {
         if(action) {
             System.out.print("Choose who to jest: \n--> ");
         }else{
-            System.out.print("Choose who to execute: \n--> ");
+            System.out.print("Player 1 choose who to execute: \n--> ");
         }
     }
 

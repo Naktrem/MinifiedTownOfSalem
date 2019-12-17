@@ -28,7 +28,7 @@ class SerialKiller extends Character {
         if(action) {
             System.out.print("Choose who to kill: \n--> ");
         }else{
-            System.out.print("Choose who to execute: \n--> ");
+            System.out.print("Player 5 choose who to execute: \n--> ");
         }
     }
 }

@@ -24,6 +24,7 @@ public abstract class Character implements Observable {
 
     public void  castVote(){
         vote.castVote();
+        vote.printVoteStatus();
         notifyObservers(false);
     }
 

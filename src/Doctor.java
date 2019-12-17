@@ -29,7 +29,7 @@ public class Doctor extends Character {
         if(action) {
             System.out.print("Choose who to heal: \n--> ");
         }else{
-            System.out.print("Choose who to execute: \n--> ");
+            System.out.print("Player 4 choose who to execute: \n--> ");
         }
     }
 
